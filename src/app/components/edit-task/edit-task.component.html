@@ -1,1 +1,56 @@
-<p>edit-task works!</p>
+<form [formGroup]="taskFormGroup" class="form-container">
+    <div>
+        <h1>EDYTOWANIE TASKA</h1>
+        <div class="form-group">
+            <label for="name">NAZWA: </label>
+            <input 
+            formControlName="name"
+            type="text">
+        </div>
+        <div class="form-group">
+            <label for="description">OPIS: </label>
+            <input 
+            formControlName="description"
+            type="text">
+        </div>
+        <div class="form-group">
+            <label for="priority">PRIORYTET: </label>
+            <select
+            formControlName="priority"
+            type="text"
+            id="priority"
+            name="priority"
+          >
+          <option *ngFor="let priority of priorityValues" [value]="priority">
+            {{ priority }}
+          </option>
+        </select>
+        </div>
+        <div class="form-group">
+            <label for="state">STATUS: </label>
+            <select 
+                id="state" 
+                name="state" 
+                required 
+                formControlName="state"
+            >
+              <option *ngFor="let value of workStatusValues" [value]="value">
+                {{ value }}
+              </option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="startDate">DATA STARTU: </label>
+            <input 
+            formControlName="startDate"
+            type="date">
+        </div> 
+        <div class="form-group">
+            <label for="endDate">DATA KOŃCA: </label>
+            <input 
+            formControlName="endDate"
+            type="date">
+        </div> 
+        <button (click)="saveUpdatedTask()" type="button">EDYTUJ</button>
+    </div>
+</form>

@@ -1,1 +1,82 @@
-<p>functionality-form works!</p>
+<form [formGroup]="functionalityForm" class="form-container">
+    <div class="container">
+      <h1 class="form-title">STWÓRZ NOWĄ FUNKCJONALNOŚĆ</h1>
+      <div class="form-content">
+        <div class="form-group">
+          <label for="title" class="form-label">NAZWA: </label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            formControlName="name"
+            required
+            class="form-input"
+          />
+        </div>
+        <div class="form-group">
+          <label for="description" class="form-label">OPIS: </label>
+          <input
+            type="text"
+            id="description"
+            name="description"
+            formControlName="description"
+            required
+            class="form-input"
+          />
+        </div>
+        <div class="form-group">
+          <label for="priority" class="form-label">PRIORYTET: </label>
+          <select
+            id="priority"
+            name="priority"
+            formControlName="priority"
+            required
+            class="form-select"
+          >          
+          <option *ngFor="let priority of priorityValues" [value]="priority">
+            {{ priority }}
+          </option>
+        </select>
+        </div>
+        <div class="form-group">
+          <label for="status" class="form-label">STATUS: </label>
+          <select
+            id="status"
+            name="status"
+            formControlName="status"
+            required
+            class="form-select"
+          >
+            <option *ngFor="let status of workStatusValues" [value]="status">
+              {{ status }}
+            </option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="startDate" class="form-label">DATA STARTU: </label>
+          <input
+            type="date"
+            id="startDate"
+            name="startDate"
+            formControlName="startDate"
+            min="Date.now()"
+            required
+            class="form-input"
+          />
+        </div>
+        <div class="form-group">
+          <label for="endDate" class="form-label">DATA KOŃCA: </label>
+          <input
+            type="date"
+            id="endDate"
+            name="endDate"
+            formControlName="endDate"
+            required
+            class="form-input"
+          />
+        </div>
+        <button class="form-button" (click)="createFunctionality()">STWÓRZ</button>
+      </div>
+    </div>
+  </form>
+  

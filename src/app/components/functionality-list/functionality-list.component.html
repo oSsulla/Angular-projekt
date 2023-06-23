@@ -1,1 +1,25 @@
-<p>functionality-list works!</p>
+<div class="container">
+    <h1 class="functionality-title">LISTA FUNKCJONALNOŚĆ</h1>
+    <div class="functionalities-container">
+      <div *ngFor="let item of functionality" class="functionality-item">
+        <ul>
+          <li>
+            <h1 class="functionality-name">NAZWA: {{ item.name }}</h1>
+          </li>
+          <li class="functionality-description">OPIS: {{ item.description }}</li>
+          <li class="functionality-priority">PRIORYTET: {{ item.priority }}</li>
+          <li class="functionality-status">STATUS: {{ item.status }}</li>
+        </ul>
+    
+        <div class="functionality-buttons">
+          <div>
+            <button class="edit-button" (click)="editFunctionality(item.ID)">EDYCJA</button>
+            <button class="details-button" (click)="showFunctionalityDetails(item.ID)">INFO</button>
+            <button class="delete-button" (click)="deleteFunctionality(item.ID)">USUŃ</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="create-button" (click)="addFunctionality()">STWÓRZ</button>
+    </div>
+    
